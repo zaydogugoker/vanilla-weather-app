@@ -1,0 +1,83 @@
+.form-outline {
+  padding: 20px 20px 20px 0px;
+}
+
+.form-control {
+  border-radius: 20px;
+  margin-top: 1%;
+}
+
+.rainyweather {
+  width: 100%;
+  margin-left: 10px;
+  margin-top: 25px;
+}
+.rainyweather-day {
+  width: 30%;
+  display: block;
+  margin: auto;
+}
+.line-one {
+  width: 2.2%;
+  height: 80%;
+  margin: auto 80px;
+  opacity: 0.5;
+}
+
+h1 {
+  margin-top: 2%;
+}
+
+h2 {
+  opacity: 0.8;
+}
+
+h3 {
+  font-size: 7vw;
+  padding-left: 50%;
+}
+
+h4 {
+  font-size: 4vh;
+  padding-left: 50%;
+}
+
+.info {
+  font-size: 2.5vw;
+  text-align: center;
+  margin: 4px 10px 0px 10px;
+  opacity: 0.8;
+}
+
+p {
+  font-size: 2vw;
+  text-align: center;
+  margin: 0 10px;
+  opacity: 0.8;
+}
+
+.units {
+  font-size: 1.8vw;
+  padding-left: 50%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+.btn {
+  margin-top: 25px;
+  border-radius: 25px;
+}
+
+#icon {
+  margin-top: 27px;
+  cursor: pointer;
+}
+
+.container {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  margin: 5% auto;
+  padding: 20px;
+}

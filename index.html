@@ -46,17 +46,16 @@
       </div>
       <div class="container-fluid">
         <div class="row justify-content-center">
-          <div class="col-2">
-            <img
-              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/055/456/original/rainywather.png?1669558230"
-              alt="rainy"
-              class="rainyweather"
-            />
-          </div>
+          <div class="col-2" id="icon-1"></div>
           <div class="col-2">
             <h3></h3>
-            <h4 id="weather">Rainy</h4>
+            <div class="units">
+              <a href="#" id="celcius-link">°C</a> |
+              <a href="#" id="fahrenheit-link">°F</a>
+              <h4 id="weather"></h4>
+            </div>
           </div>
+
           <div class="col-2">
             <img
               src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/055/464/original/line.png?1669560869"
@@ -99,7 +98,8 @@
                 alt="rainy"
                 class="rainyweather-day"
               />
-              <p style="font-size: 2.5vw">8°</p>
+              <p id="day-1-max" style="font-size: 2.5vw">8°</p>
+              <p id="day-1-min" style="font-size: 2vw">8°</p>
             </div>
           </div>
           <div class="col-2">
@@ -110,7 +110,8 @@
                 alt="rainy"
                 class="rainyweather-day"
               />
-              <p style="font-size: 2.5vw">8°</p>
+              <p id="day-2-max" style="font-size: 2.5vw">8°</p>
+              <p id="day-2-min" style="font-size: 2vw">8°</p>
             </div>
           </div>
           <div class="col-2">
@@ -121,7 +122,8 @@
                 alt="rainy"
                 class="rainyweather-day"
               />
-              <p style="font-size: 2.5vw">8°</p>
+              <p id="day-3-max" style="font-size: 2.5vw">8°</p>
+              <p id="day-3-min" style="font-size: 2vw">8°</p>
             </div>
           </div>
           <div class="col-2">
@@ -132,7 +134,8 @@
                 alt="rainy"
                 class="rainyweather-day"
               />
-              <p style="font-size: 2.5vw">10°</p>
+              <p id="day-4-max" style="font-size: 2.5vw">10°</p>
+              <p id="day-4-min" style="font-size: 2vw">8°</p>
             </div>
           </div>
           <div class="col-2">
@@ -143,32 +146,34 @@
                 alt="rainy"
                 class="rainyweather-day"
               />
-              <p style="font-size: 2.5vw">11°</p>
+              <p id="day-5-max" style="font-size: 2.5vw">11°</p>
+              <p id="day-5-min" style="font-size: 2vw">8°</p>
             </div>
           </div>
         </div>
       </div>
+      <footer>
+        This project was coded by
+        <a
+          href="https://www.linkedin.com/in/zeynep-aydo%C4%9Fu-g%C3%B6ker-961892115/"
+          target="_blank"
+        >
+          <strong>Zeynep</strong>
+        </a>
+        and is
+        <a href="https://github.com/zaydogugoker/weather-app" target="_blank">
+          <strong>open-sourced on GitHub</strong>
+        </a>
+        and
+        <a
+          href="https://app.netlify.com/sites/ephemeral-pudding-101879/overview"
+          target="_blank"
+        >
+          <strong>hosted on Netlify</strong>
+        </a>
+      </footer>
     </div>
-    <footer>
-      This project was coded by
-      <a
-        href="https://www.linkedin.com/in/zeynep-aydo%C4%9Fu-g%C3%B6ker-961892115/"
-        target="_blank"
-      >
-        <strong>Zeynep</strong>
-      </a>
-      and is
-      <a href="https://github.com/zaydogugoker/weather-app" target="_blank">
-        <strong>open-sourced on GitHub</strong>
-      </a>
-      and
-      <a
-        href="https://app.netlify.com/sites/ephemeral-pudding-101879/overview"
-        target="_blank"
-      >
-        <strong>hosted on Netlify</strong>
-      </a>
-    </footer>
+
     <script src="./script.js "></script>
   </body>
 </html>

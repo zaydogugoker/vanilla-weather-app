@@ -97,3 +97,8 @@ footer {
   display: block;
   margin: 20px;
 }
+
+.units .active {
+  color: blue;
+  cursor: default;
+}

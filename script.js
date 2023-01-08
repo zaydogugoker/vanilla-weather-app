@@ -66,12 +66,41 @@ function getCity(event) {
   getTemparature(cityInput.value);
 }
 
+///////////////////////////
+
 function getTemparature(cityName) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=5bbb701eea5355bfe05de5f48cfd3289&units=metric`;
   let forecastApi = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=5bbb701eea5355bfe05de5f48cfd3289&units=metric`;
   axios.get(apiUrl).then(showTemparature);
   axios.get(forecastApi).then(showForecast);
 }
+
+///////////////////////////
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}`;
+}
+
+///////////////////////////
+
+let celsiusTemperature = null;
+
+///////////////////////////
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+///////////////////////////
 
 function showTemparature(response) {
   console.log(response.data);
@@ -84,8 +113,15 @@ function showTemparature(response) {
   let city = document.querySelector("h1");
   let info = document.querySelector("#icon-1");
   let result = response.data.weather[0].main;
+
   console.log(result);
-  h3.innerHTML = `${Math.round(response.data.main.temp)}°`;
+
+  celsiusTemperature = response.data.main.temp;
+
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+
+  h3.innerHTML = `${Math.round(response.data.main.temp)}`;
   humidity.innerHTML = `${Math.round(response.data.main.humidity)}%`;
   wind.innerHTML = `${Math.round(response.data.wind.speed)} km/h`;
   highTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°`;
@@ -123,6 +159,8 @@ function showTemparature(response) {
     info.innerHTML = clearDay;
   }
 }
+
+///////////////////////////
 
 function showForecast(response) {
   console.log(response.data);
@@ -191,3 +229,9 @@ function getCurrentPosition() {
 
 let currentIcon = document.querySelector("#icon");
 currentIcon.addEventListener("click", getCurrentPosition);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);

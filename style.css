@@ -79,6 +79,8 @@ a {
 }
 
 .container {
+  top: 50%;
+  left: 50%;
   border: 2px;
   border-radius: 30px;
   margin: 3% auto;

@@ -1,5 +1,10 @@
 let now = new Date();
 let h2 = document.querySelector("h2");
+let forecastFirst = document.querySelector("#info-day-1");
+let forecastSecond = document.querySelector("#info-day-2");
+let forecastThird = document.querySelector("#info-day-3");
+let forecastForth = document.querySelector("#info-day-4");
+let forecastFifth = document.querySelector("#info-day-5");
 
 let days = [
   "Sunday",
@@ -21,6 +26,48 @@ if (minutes < 10) {
   minutes = `0${minutes}`;
 }
 h2.innerHTML = `${day} ${hours}:${minutes}`;
+
+///////////////////////////
+
+let fullNames = [
+  "Sun",
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat",
+  "Sun",
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+];
+
+//set forecastday1 value
+let forecastDay1 = fullNames[now.getDay()];
+let infoDay1 = document.querySelector("#info-day-1");
+infoDay1.innerHTML = forecastDay1;
+
+//set forecastday2 value
+let forecastDay2 = fullNames[now.getDay() + 1];
+let infoDay2 = document.querySelector("#info-day-2");
+infoDay2.innerHTML = forecastDay2;
+
+//set forecastday3 value
+let forecastDay3 = fullNames[now.getDay() + 2];
+let infoDay3 = document.querySelector("#info-day-3");
+infoDay3.innerHTML = forecastDay3;
+
+//set forecastday4 value
+let forecastDay4 = fullNames[now.getDay() + 3];
+let infoDay4 = document.querySelector("#info-day-4");
+infoDay4.innerHTML = forecastDay4;
+
+//set forecastday5 value
+let forecastDay5 = fullNames[now.getDay() + 4];
+let infoDay5 = document.querySelector("#info-day-5");
+infoDay5.innerHTML = forecastDay5;
 
 ///////////////////////////
 
@@ -70,7 +117,7 @@ function getCity(event) {
 
 function getTemparature(cityName) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=5bbb701eea5355bfe05de5f48cfd3289&units=metric`;
-  let forecastApi = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=5bbb701eea5355bfe05de5f48cfd3289&units=metric`;
+  let forecastApi = `https://api.shecodes.io/weather/v1/forecast?query=${cityName}&key=5873f37d07o0b6act4be247f0ae426a3&units=metric`;
   axios.get(apiUrl).then(showTemparature);
   axios.get(forecastApi).then(showForecast);
 }
@@ -163,7 +210,8 @@ function showTemparature(response) {
 ///////////////////////////
 
 function showForecast(response) {
-  console.log(response.data);
+  console.log(response.data.daily);
+
   let weatherOneMax = document.querySelector("#day-1-max");
   let weatherTwoMax = document.querySelector("#day-2-max");
   let weatherThreeMax = document.querySelector("#day-3-max");
@@ -177,37 +225,43 @@ function showForecast(response) {
   let weatherFiveMin = document.querySelector("#day-5-min");
 
   weatherOneMax.innerHTML = `${Math.round(
-    response.data.list[0].main.temp_max
+    response.data.daily[0].temperature.maximum
   )}°`;
   weatherTwoMax.innerHTML = `${Math.round(
-    response.data.list[1].main.temp_max
+    response.data.daily[1].temperature.maximum
   )}°`;
   weatherThreeMax.innerHTML = `${Math.round(
-    response.data.list[2].main.temp_max
+    response.data.daily[2].temperature.maximum
   )}°`;
   weatherFourMax.innerHTML = `${Math.round(
-    response.data.list[3].main.temp_max
+    response.data.daily[3].temperature.maximum
   )}°`;
   weatherFiveMax.innerHTML = `${Math.round(
-    response.data.list[4].main.temp_max
+    response.data.daily[4].temperature.maximum
   )}°`;
 
   weatherOneMin.innerHTML = `${Math.round(
-    response.data.list[0].main.temp_min
+    response.data.daily[0].temperature.minimum
   )}°`;
   weatherTwoMin.innerHTML = `${Math.round(
-    response.data.list[1].main.temp_min
+    response.data.daily[1].temperature.minimum
   )}°`;
   weatherThreeMin.innerHTML = `${Math.round(
-    response.data.list[2].main.temp_min
+    response.data.daily[2].temperature.minimum
   )}°`;
   weatherFourMin.innerHTML = `${Math.round(
-    response.data.list[3].main.temp_min
+    response.data.daily[3].temperature.minimum
   )}°`;
   weatherFiveMin.innerHTML = `${Math.round(
-    response.data.list[4].main.temp_min
+    response.data.daily[4].temperature.minimum
   )}°`;
 }
+
+///////////////////////////
+
+///////////////////////////
+
+///////////////////////////
 
 let cityName = document.querySelector("#form-info");
 cityName.addEventListener("submit", getCity);

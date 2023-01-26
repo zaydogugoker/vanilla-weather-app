@@ -42,30 +42,31 @@ let fullNames = [
   "Tue",
   "Wed",
   "Thu",
+  "Fri",
 ];
 
 //set forecastday1 value
-let forecastDay1 = fullNames[now.getDay()];
+let forecastDay1 = fullNames[now.getDay() + 1];
 let infoDay1 = document.querySelector("#info-day-1");
 infoDay1.innerHTML = forecastDay1;
 
 //set forecastday2 value
-let forecastDay2 = fullNames[now.getDay() + 1];
+let forecastDay2 = fullNames[now.getDay() + 2];
 let infoDay2 = document.querySelector("#info-day-2");
 infoDay2.innerHTML = forecastDay2;
 
 //set forecastday3 value
-let forecastDay3 = fullNames[now.getDay() + 2];
+let forecastDay3 = fullNames[now.getDay() + 3];
 let infoDay3 = document.querySelector("#info-day-3");
 infoDay3.innerHTML = forecastDay3;
 
 //set forecastday4 value
-let forecastDay4 = fullNames[now.getDay() + 3];
+let forecastDay4 = fullNames[now.getDay() + 4];
 let infoDay4 = document.querySelector("#info-day-4");
 infoDay4.innerHTML = forecastDay4;
 
 //set forecastday5 value
-let forecastDay5 = fullNames[now.getDay() + 4];
+let forecastDay5 = fullNames[now.getDay() + 5];
 let infoDay5 = document.querySelector("#info-day-5");
 infoDay5.innerHTML = forecastDay5;
 
@@ -225,35 +226,35 @@ function showForecast(response) {
   let weatherFiveMin = document.querySelector("#day-5-min");
 
   weatherOneMax.innerHTML = `${Math.round(
-    response.data.daily[0].temperature.maximum
-  )}°`;
-  weatherTwoMax.innerHTML = `${Math.round(
     response.data.daily[1].temperature.maximum
   )}°`;
-  weatherThreeMax.innerHTML = `${Math.round(
+  weatherTwoMax.innerHTML = `${Math.round(
     response.data.daily[2].temperature.maximum
   )}°`;
-  weatherFourMax.innerHTML = `${Math.round(
+  weatherThreeMax.innerHTML = `${Math.round(
     response.data.daily[3].temperature.maximum
   )}°`;
-  weatherFiveMax.innerHTML = `${Math.round(
+  weatherFourMax.innerHTML = `${Math.round(
     response.data.daily[4].temperature.maximum
+  )}°`;
+  weatherFiveMax.innerHTML = `${Math.round(
+    response.data.daily[5].temperature.maximum
   )}°`;
 
   weatherOneMin.innerHTML = `${Math.round(
-    response.data.daily[0].temperature.minimum
-  )}°`;
-  weatherTwoMin.innerHTML = `${Math.round(
     response.data.daily[1].temperature.minimum
   )}°`;
-  weatherThreeMin.innerHTML = `${Math.round(
+  weatherTwoMin.innerHTML = `${Math.round(
     response.data.daily[2].temperature.minimum
   )}°`;
-  weatherFourMin.innerHTML = `${Math.round(
+  weatherThreeMin.innerHTML = `${Math.round(
     response.data.daily[3].temperature.minimum
   )}°`;
-  weatherFiveMin.innerHTML = `${Math.round(
+  weatherFourMin.innerHTML = `${Math.round(
     response.data.daily[4].temperature.minimum
+  )}°`;
+  weatherFiveMin.innerHTML = `${Math.round(
+    response.data.daily[5].temperature.minimum
   )}°`;
 }
 
